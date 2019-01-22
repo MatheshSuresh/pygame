@@ -84,14 +84,16 @@ v.close()
 while (count>0):
     # start of the game
     baddies = []
-    score = 0
+    if(count==3):	
+	    score=0		
     playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)
     moveLeft = moveRight = moveUp = moveDown = False
     reverseCheat = slowCheat = False
     baddieAddCounter = 0
     pygame.mixer.music.play(-1, 0.0)
 
-    while True: # the game loop
+    while True: # the game loop	
+	
         score += 1 # increase score
 
         for event in pygame.event.get():
@@ -219,6 +221,8 @@ while (count>0):
     time.sleep(1)
     if (count==0):
      laugh.play()
+     if(count==3):
+	    score = 0
      drawText('Game over', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
      drawText('Press any key to play again.', font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 30)
      pygame.display.update()
